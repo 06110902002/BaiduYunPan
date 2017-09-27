@@ -30,7 +30,7 @@ class WatchVC: BaseVC {
     
         let titles : [String] = ["视频","资讯","趣味图集","小说","娱乐","热点","体育",
                                  "财经","军事","汽车","时尚"]
-        topNavBar.initTitle(titles: titles)
+        topNavBar.initTitle(titles: titles,isScroll: true)
         
         self.view.addSubview(topNavBar)
         

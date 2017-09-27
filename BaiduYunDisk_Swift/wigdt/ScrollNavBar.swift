@@ -44,6 +44,9 @@ class ScrollNavBar: UIView {
     
     var screenSize : CGRect = CGRect.zero
     
+    var bIsTitleScroll : Bool = false
+    lazy var averageItemWidth : CGFloat = 0
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,11 +57,19 @@ class ScrollNavBar: UIView {
     }
     
     
-    func initTitle(titles : Array<String>) {
+    /// 初始标题栏
+    ///
+    /// - Parameters:
+    ///   - titles: 标题列表
+    ///   - isScroll: 标题栏是否可滑动开关,这个开关在这里主要是控制底部下划线宽度与滚动列表横向滚动的尺寸
+    
+    func initTitle(titles : Array<String>,isScroll : Bool) {
         
         if titles.isEmpty {
            return
         }
+        
+        self.bIsTitleScroll = isScroll
         
         screenSize = UIScreen.main.bounds
         
@@ -72,35 +83,60 @@ class ScrollNavBar: UIView {
         
         self.addSubview(titleScrollView)
         
+        if !isScroll{
+            averageItemWidth = titleScrollView.frame.width / CGFloat(titles.count)
+        }
+        
+        
         var offsetX : CGFloat = 0
         var contentSize : CGFloat = 0
-        for (idx,title) in self.titleList.enumerated(){
         
-            if idx == 0{
-                offsetX = 0
-            }else{
-                offsetX = self.btnList[idx - 1].frame.size.width + self.btnList[idx - 1].frame.origin.x
+        for (idx,title) in self.titleList.enumerated(){
+            
+            if isScroll{
+            
+                if idx == 0{
+                    offsetX = 0
+                }else{
+                    offsetX = self.btnList[idx - 1].frame.size.width + self.btnList[idx - 1].frame.origin.x
+                }
             }
-            let button : UIButton = UIButton.init()
+            
+            let button : UIButton = UIButton.init(frame:CGRect.init(x: CGFloat(idx) * averageItemWidth, y: 0, width: averageItemWidth, height: 40))
             button.tag = idx
             button.addTarget(self, action: #selector(onClickListener(btn:)), for:.touchUpInside)
             button.setTitle(title, for: UIControlState.normal)
             button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
             button.setTitleColor(UIColor.white, for: .normal)
             
-            let tmpWidth : CGFloat = UIButton.getWidthWithTitle(title: title, font: UIFont.systemFont(ofSize: 12)) + 20
-            button.frame = CGRect.init(x: offsetX, y: 0, width: tmpWidth, height: 40)
-            contentSize += tmpWidth
+            
+            if isScroll{
+                
+                let tmpWidth : CGFloat = UIButton.getWidthWithTitle(title: title, font: UIFont.systemFont(ofSize: 12)) + 20
+                button.frame = CGRect.init(x: offsetX, y: 0, width: tmpWidth, height: 40)
+                contentSize += tmpWidth
+            }
+            
             
             
             titleScrollView.addSubview(button)
             self.btnList.append(button)
             
         }
-        titleScrollView.contentSize = CGSize.init(width:contentSize, height: 42)
+        if isScroll{
+            titleScrollView.contentSize = CGSize.init(width:contentSize, height: 42)
+            
+        }else{
+            titleScrollView.contentSize = CGSize.init(width:CGFloat(titles.count) * averageItemWidth, height: 42)
+        }
+        
         
         //创建底部线条
-        let lineRect : CGRect = CGRect.init(x: 0, y: 40, width: self.btnList[0].frame.size.width, height: 1.5)
+        let lineRect : CGRect = CGRect.init(x: 0,
+                                            y: 40,
+                                        width: isScroll == true ? self.btnList[0].frame.size.width : averageItemWidth,
+                                        height: 1.5)
+        
         bottomLine.frame = lineRect
         bottomLine.backgroundColor = UIColor.white
         titleScrollView.addSubview(bottomLine)
@@ -153,19 +189,40 @@ class ScrollNavBar: UIView {
         
         let curItemWidth : CGFloat = self.btnList[btn!.tag].frame.width
         
-        let fromValue : NSValue = NSValue.init(cgPoint: CGPoint.init(x: self.btnList[self.nLastIndex].frame.origin.x + 0.5 * lastItemWidth,
-                                                                     y: 40))
+        var fromValue : NSValue?
         
-        let toValue : NSValue = NSValue.init(cgPoint: CGPoint.init(x: self.btnList[btn!.tag].frame.origin.x + 0.5 * curItemWidth,
-                                                                   y: 40))
+        var toValue : NSValue?
         
-        startLineMoveAnimFromValue(fromValue: fromValue, toValue: toValue, duration: 0.3)
+        if self.bIsTitleScroll{
+            
+             fromValue = NSValue.init(cgPoint: CGPoint.init(x: self.btnList[self.nLastIndex].frame.origin.x + 0.5 * lastItemWidth,
+                                                                         y: 40))
+            
+             toValue = NSValue.init(cgPoint: CGPoint.init(x: self.btnList[btn!.tag].frame.origin.x + 0.5 * curItemWidth,
+                                                                       y: 40))
+        }else{
+            
+             fromValue = NSValue.init(cgPoint: CGPoint.init(x: CGFloat(self.nLastIndex) * averageItemWidth + 0.5 * averageItemWidth,
+                                                                         y: 40))
+            
+             toValue  = NSValue.init(cgPoint: CGPoint.init(x: CGFloat(btn!.tag) * averageItemWidth + 0.5 * averageItemWidth,
+                                                                       y: 40))
+        }
+       
+        
+        startLineMoveAnimFromValue(fromValue: fromValue!, toValue: toValue!, duration: 0.3)
         
         titleLabelMoveLogic(curBtnIdx: btn!.tag)
         
         self.nLastIndex = btn!.tag
         
         updateTitleBtnStatus(idx: btn!.tag)
+        
+        
+        guard self.bIsTitleScroll == true else {
+            self.finalPos = CGPoint.init(x : CGFloat(btn!.tag) * averageItemWidth + 0.5 * averageItemWidth, y : 40)
+            return
+        }
         
         self.finalPos = CGPoint.init(x:curItemWidth + 0.5 * curItemWidth, y: 40)
         
@@ -177,7 +234,10 @@ class ScrollNavBar: UIView {
     /// 处理标签滑动逻辑：
     /// - Parameters:
     ///   - curBtnIdx: 点击的当前标签
+    /// 对于可以滑动，需要重新调整可见视图
     func titleLabelMoveLogic(curBtnIdx : Int) {
+        
+        if !self.bIsTitleScroll {return}
         
         self.titleScrollView.scrollRectToVisible(CGRect.init(x: self.btnList[curBtnIdx].frame.origin.x,
                                                              y: 0,
@@ -185,6 +245,8 @@ class ScrollNavBar: UIView {
                                                         height: self.titleScrollView.frame.size.height),
                                                       animated: true)
     }
+    
+    
     func updateTitleBtnStatus(idx : Int){
         
         for(index, button) in self.btnList.enumerated(){
@@ -199,14 +261,17 @@ class ScrollNavBar: UIView {
         
         }
         
-        resetLabelWidth(idx: idx)
+        if self.bIsTitleScroll {        //对于标题栏可以滑动，需要重新调整底部下划线的宽度
+            resetBottomLineWidth(idx: idx)
+        }
+        
     }
     
     
     /// 调整顶部标签的宽度:主要根据点击的按钮宽度来更新标签的宽度
     ///
     /// - Parameter idx: 宽度id 因为按钮id与其在列表中索引一致，所以可以直接用id作索引
-    func resetLabelWidth(idx : Int) {
+    func resetBottomLineWidth(idx : Int) {
         
         let btnWidth : CGFloat = self.btnList[idx].frame.width
         
@@ -235,10 +300,20 @@ class ScrollNavBar: UIView {
         self.nLastIndex = Int(newPos.x / self.segmentScroll.frame.width);
         
         self.bottomLine.layer.removeAllAnimations()
-        self.bottomLine.frame = CGRect.init(x: self.btnList[self.nLastIndex].frame.origin.x,
-                                            y: self.bottomLine.frame.origin.y,
-                                            width: 0,
-                                            height: 1.5)
+        
+        if self.bIsTitleScroll{
+            
+            self.bottomLine.frame = CGRect.init(x: self.btnList[self.nLastIndex].frame.origin.x,
+                                                y: self.bottomLine.frame.origin.y,
+                                                width: 0,
+                                                height: 1.5)
+        }else{
+        
+            var frame : CGRect = self.bottomLine.frame
+            frame.origin.x = CGFloat(self.nLastIndex) * averageItemWidth
+            self.bottomLine.frame = frame;
+        }
+        
         
         self.bottomLine.layoutIfNeeded()
         

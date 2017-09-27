@@ -42,6 +42,13 @@
 		381E94B61F7282420075899C /* main_list_header_search_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 381E94B21F7282420075899C /* main_list_header_search_pressed.png */; };
 		381E94B81F728A8A0075899C /* YunDiskOptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381E94B71F728A8A0075899C /* YunDiskOptionModel.swift */; };
 		381E94BA1F729C990075899C /* YunDiskHeadForTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381E94B91F729C990075899C /* YunDiskHeadForTabView.swift */; };
+		381F44151F7A323E00492883 /* TransListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381F44141F7A323E00492883 /* TransListVC.swift */; };
+		381F44181F7A411A00492883 /* TransListBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381F44171F7A411A00492883 /* TransListBaseView.swift */; };
+		381F441A1F7A44F200492883 /* title_back_icon_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 381F44191F7A44F200492883 /* title_back_icon_normal.png */; };
+		381F441C1F7A4E5600492883 /* title_more_button_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 381F441B1F7A4E5600492883 /* title_more_button_normal.png */; };
+		381F441E1F7A53B700492883 /* push_transfer_list_empty_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 381F441D1F7A53B700492883 /* push_transfer_list_empty_img.png */; };
+		381F44201F7A546800492883 /* empty_no_data.png in Resources */ = {isa = PBXBuildFile; fileRef = 381F441F1F7A546800492883 /* empty_no_data.png */; };
+		381F44241F7A59F400492883 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381F44231F7A59F400492883 /* ProgressBarView.swift */; };
 		382225D41F70C5F8008BA992 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382225D31F70C5F8008BA992 /* AppDelegate.swift */; };
 		382225D61F70C5F8008BA992 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382225D51F70C5F8008BA992 /* ViewController.swift */; };
 		382225D91F70C5F8008BA992 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 382225D71F70C5F8008BA992 /* Main.storyboard */; };
@@ -73,6 +80,9 @@
 		382226301F711D98008BA992 /* navigation_bar_upload_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3822262F1F711D98008BA992 /* navigation_bar_upload_icon.png */; };
 		382226321F7130D1008BA992 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382226311F7130D1008BA992 /* UIView.swift */; };
 		382EA6F61F7340CC0052BE27 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382EA6F51F7340CC0052BE27 /* LoadingView.swift */; };
+		3836ACA31F7B29A900F7EB69 /* NumberLabelAnim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3836ACA21F7B29A900F7EB69 /* NumberLabelAnim.swift */; };
+		3836ACA51F7B477F00F7EB69 /* CountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3836ACA41F7B477F00F7EB69 /* CountDownView.swift */; };
+		3836ACA71F7B81E500F7EB69 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3836ACA61F7B81E500F7EB69 /* ToastView.swift */; };
 		385410121F78D4D500DC810C /* edit_tools_open.png in Resources */ = {isa = PBXBuildFile; fileRef = 385410111F78D4D500DC810C /* edit_tools_open.png */; };
 		385410141F78D92E00DC810C /* edit_tools_share.png in Resources */ = {isa = PBXBuildFile; fileRef = 385410131F78D92E00DC810C /* edit_tools_share.png */; };
 		385410161F78D97100DC810C /* edit_tools_download.png in Resources */ = {isa = PBXBuildFile; fileRef = 385410151F78D97100DC810C /* edit_tools_download.png */; };
@@ -134,6 +144,13 @@
 		381E94B21F7282420075899C /* main_list_header_search_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_list_header_search_pressed.png; sourceTree = "<group>"; };
 		381E94B71F728A8A0075899C /* YunDiskOptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YunDiskOptionModel.swift; path = yundisk/model/YunDiskOptionModel.swift; sourceTree = "<group>"; };
 		381E94B91F729C990075899C /* YunDiskHeadForTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YunDiskHeadForTabView.swift; path = yundisk/view/YunDiskHeadForTabView.swift; sourceTree = "<group>"; };
+		381F44141F7A323E00492883 /* TransListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransListVC.swift; path = translist/TransListVC.swift; sourceTree = "<group>"; };
+		381F44171F7A411A00492883 /* TransListBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransListBaseView.swift; path = translist/view/TransListBaseView.swift; sourceTree = "<group>"; };
+		381F44191F7A44F200492883 /* title_back_icon_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title_back_icon_normal.png; sourceTree = "<group>"; };
+		381F441B1F7A4E5600492883 /* title_more_button_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title_more_button_normal.png; sourceTree = "<group>"; };
+		381F441D1F7A53B700492883 /* push_transfer_list_empty_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = push_transfer_list_empty_img.png; sourceTree = "<group>"; };
+		381F441F1F7A546800492883 /* empty_no_data.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty_no_data.png; sourceTree = "<group>"; };
+		381F44231F7A59F400492883 /* ProgressBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressBarView.swift; path = wigdt/ProgressBarView.swift; sourceTree = "<group>"; };
 		382225D01F70C5F8008BA992 /* BaiduYunDisk_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiduYunDisk_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		382225D31F70C5F8008BA992 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		382225D51F70C5F8008BA992 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +188,9 @@
 		3822262F1F711D98008BA992 /* navigation_bar_upload_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_bar_upload_icon.png; sourceTree = "<group>"; };
 		382226311F7130D1008BA992 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		382EA6F51F7340CC0052BE27 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingView.swift; path = wigdt/loading/LoadingView.swift; sourceTree = "<group>"; };
+		3836ACA21F7B29A900F7EB69 /* NumberLabelAnim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumberLabelAnim.swift; path = wigdt/NumberLabelAnim.swift; sourceTree = "<group>"; };
+		3836ACA41F7B477F00F7EB69 /* CountDownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountDownView.swift; path = wigdt/CountDownView.swift; sourceTree = "<group>"; };
+		3836ACA61F7B81E500F7EB69 /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToastView.swift; path = wigdt/ToastView.swift; sourceTree = "<group>"; };
 		385410111F78D4D500DC810C /* edit_tools_open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit_tools_open.png; sourceTree = "<group>"; };
 		385410131F78D92E00DC810C /* edit_tools_share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit_tools_share.png; sourceTree = "<group>"; };
 		385410151F78D97100DC810C /* edit_tools_download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit_tools_download.png; sourceTree = "<group>"; };
@@ -222,6 +242,10 @@
 				382EA6F41F733FF90052BE27 /* loading */,
 				381E94871F71F9300075899C /* ImgLabelView.swift */,
 				385410171F78E58200DC810C /* ScrollNavBar.swift */,
+				381F44231F7A59F400492883 /* ProgressBarView.swift */,
+				3836ACA21F7B29A900F7EB69 /* NumberLabelAnim.swift */,
+				3836ACA41F7B477F00F7EB69 /* CountDownView.swift */,
+				3836ACA61F7B81E500F7EB69 /* ToastView.swift */,
 			);
 			name = wigdt;
 			sourceTree = "<group>";
@@ -300,6 +324,39 @@
 			name = cell;
 			sourceTree = "<group>";
 		};
+		381F44131F7A321700492883 /* translist */ = {
+			isa = PBXGroup;
+			children = (
+				381F44161F7A40A600492883 /* view */,
+				381F44141F7A323E00492883 /* TransListVC.swift */,
+			);
+			name = translist;
+			sourceTree = "<group>";
+		};
+		381F44161F7A40A600492883 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				381F44171F7A411A00492883 /* TransListBaseView.swift */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		381F44211F7A59B800492883 /* more */ = {
+			isa = PBXGroup;
+			children = (
+				381F44221F7A59C700492883 /* view */,
+				3822260D1F70E548008BA992 /* MoreVC.swift */,
+			);
+			name = more;
+			sourceTree = "<group>";
+		};
+		381F44221F7A59C700492883 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
 		382225C71F70C5F8008BA992 = {
 			isa = PBXGroup;
 			children = (
@@ -363,11 +420,12 @@
 		382226011F70C5FF008BA992 /* viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				381F44211F7A59B800492883 /* more */,
+				381F44131F7A321700492883 /* translist */,
 				381E94901F7263990075899C /* yundisk */,
 				382226041F70C63D008BA992 /* BaseVC.swift */,
 				382226091F70E4A1008BA992 /* ShareVC.swift */,
 				3822260B1F70E500008BA992 /* WatchVC.swift */,
-				3822260D1F70E548008BA992 /* MoreVC.swift */,
 			);
 			name = viewcontroller;
 			sourceTree = "<group>";
@@ -383,6 +441,10 @@
 		3822260F1F70E881008BA992 /* res */ = {
 			isa = PBXGroup;
 			children = (
+				381F441F1F7A546800492883 /* empty_no_data.png */,
+				381F441D1F7A53B700492883 /* push_transfer_list_empty_img.png */,
+				381F441B1F7A4E5600492883 /* title_more_button_normal.png */,
+				381F44191F7A44F200492883 /* title_back_icon_normal.png */,
 				385410151F78D97100DC810C /* edit_tools_download.png */,
 				385410131F78D92E00DC810C /* edit_tools_share.png */,
 				385410111F78D4D500DC810C /* edit_tools_open.png */,
@@ -565,6 +627,7 @@
 			files = (
 				381E94B41F7282420075899C /* main_list_header_rank_pressed.png in Resources */,
 				381E947E1F71F8460075899C /* netdisk_category_document_normal.png in Resources */,
+				381F441C1F7A4E5600492883 /* title_more_button_normal.png in Resources */,
 				381E947C1F71F8460075899C /* netdisk_category_bt_normal.png in Resources */,
 				382225DE1F70C5F8008BA992 /* LaunchScreen.storyboard in Resources */,
 				381E94781F71F8460075899C /* netdisk_category_apk_normal.png in Resources */,
@@ -582,10 +645,13 @@
 				381E94B51F7282420075899C /* main_list_header_search_normal.png in Resources */,
 				382226241F70F570008BA992 /* about_me_title_background.png in Resources */,
 				381E94791F71F8460075899C /* netdisk_category_apk_pressed.png in Resources */,
+				381F441E1F7A53B700492883 /* push_transfer_list_empty_img.png in Resources */,
 				3822262E1F711D7A008BA992 /* navigation_bar_transferlist_icon.png in Resources */,
 				3822261F1F70E923008BA992 /* tab_share_normal.png in Resources */,
 				3822262C1F711D74008BA992 /* navigation_bar_category_icon.png in Resources */,
+				381F44201F7A546800492883 /* empty_no_data.png in Resources */,
 				381E947B1F71F8460075899C /* netdisk_category_audio_pressed.png in Resources */,
+				381F441A1F7A44F200492883 /* title_back_icon_normal.png in Resources */,
 				381E94A81F72721E0075899C /* inbox_unknow_folder.png in Resources */,
 				382226261F70F9B6008BA992 /* head.png in Resources */,
 				382226301F711D98008BA992 /* navigation_bar_upload_icon.png in Resources */,
@@ -690,6 +756,7 @@
 				381E94B81F728A8A0075899C /* YunDiskOptionModel.swift in Sources */,
 				381E94961F7265930075899C /* BaseModel.swift in Sources */,
 				382225D61F70C5F8008BA992 /* ViewController.swift in Sources */,
+				3836ACA51F7B477F00F7EB69 /* CountDownView.swift in Sources */,
 				382EA6F61F7340CC0052BE27 /* LoadingView.swift in Sources */,
 				381E949C1F7266870075899C /* BaseTableView.swift in Sources */,
 				382226031F70C630008BA992 /* YunDiskVC.swift in Sources */,
@@ -698,16 +765,21 @@
 				385410181F78E58200DC810C /* ScrollNavBar.swift in Sources */,
 				3822260E1F70E548008BA992 /* MoreVC.swift in Sources */,
 				381E94A21F7269A60075899C /* YunDiskResCell.swift in Sources */,
+				381F44151F7A323E00492883 /* TransListVC.swift in Sources */,
+				3836ACA71F7B81E500F7EB69 /* ToastView.swift in Sources */,
 				381E948A1F7219AC0075899C /* BaseDialog.swift in Sources */,
 				3822260C1F70E500008BA992 /* WatchVC.swift in Sources */,
 				381E948F1F724FA60075899C /* UploadTypeDialog.swift in Sources */,
+				381F44241F7A59F400492883 /* ProgressBarView.swift in Sources */,
 				382225D41F70C5F8008BA992 /* AppDelegate.swift in Sources */,
 				381E94A41F726A0F0075899C /* YunDiskTableView.swift in Sources */,
 				381E94A01F72674B0075899C /* YunDiskResModel.swift in Sources */,
+				3836ACA31F7B29A900F7EB69 /* NumberLabelAnim.swift in Sources */,
 				381E94A61F726DD00075899C /* BaseRefreshHeadView.swift in Sources */,
 				381E94AA1F7281230075899C /* YunDiskOptionCell.swift in Sources */,
 				382226221F70EBAB008BA992 /* UIImage.swift in Sources */,
 				381E949E1F7266BE0075899C /* BaseTabViewCell.swift in Sources */,
+				381F44181F7A411A00492883 /* TransListBaseView.swift in Sources */,
 				382226051F70C63D008BA992 /* BaseVC.swift in Sources */,
 				382226081F70C79B008BA992 /* BottomTabBarVC.swift in Sources */,
 			);

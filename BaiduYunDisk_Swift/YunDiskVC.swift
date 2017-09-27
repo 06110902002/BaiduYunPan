@@ -475,6 +475,8 @@ class YunDiskVC: BaseVC {
     
     func tabOnTransList() {
         
+        self.present(TransListVC(), animated: true, completion: nil)
+        
     }
     
     
